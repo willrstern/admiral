@@ -2,7 +2,7 @@
 A wrapper for coreos fleet - allowing scaling and rolling deploys of apps
 
 ## Installation
-- `wget -O /usr/local/bin/admiral https://github.com/willrstern/admiral/releases/download/latest/admiral
+- `wget -O /usr/local/bin/admiral https://github.com/willrstern/admiral/releases/download/latest/admiral`
 
 ## Usage
 `admiral deploy someapp 4`
