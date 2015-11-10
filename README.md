@@ -1,6 +1,9 @@
 # Admiral
 A wrapper for coreos fleet - allowing scaling and rolling deploys of apps
 
+## Installation
+- `wget -O /usr/local/bin/admiral https://github.com/willrstern/admiral/releases/download/latest/admiral
+
 ## Usage
 `admiral deploy someapp 4`
 will submit `someapp@` service file, and start/rolling-restart 4 instances of it
