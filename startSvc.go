@@ -5,6 +5,7 @@ import (
   "fmt"
   "os"
   "os/exec"
+  "strings"
   "time"
 )
 
@@ -28,9 +29,9 @@ func startSvc(name string, waitForStart bool) {
 
 func instanceIsRunning(name string)(status bool) {
   var out bytes.Buffer
-  list := exec.Command("fleetctl", "list-units")
-  grep := exec.Command("grep", "^" + name)
-  grep2  := exec.Command("grep", "active")
+  list  := exec.Command("fleetctl", "list-units")
+  grep  := exec.Command("grep", "^" + name)
+  grep2 := exec.Command("awk", "{print $3}")
   grep.Stdin, _ = list.StdoutPipe()
   grep2.Stdin, _ = grep.StdoutPipe()
   grep2.Stdout = &out
@@ -39,8 +40,11 @@ func instanceIsRunning(name string)(status bool) {
   _ = list.Run()
   err := grep2.Wait()
 
-  if err != nil {
-    return false
+  if strings.TrimSpace(out.String()) == "active" || err != nil {
+    return true;
+  } else if strings.TrimSpace(out.String()) == "failed" {
+    fmt.Printf("\n%v.service failed to start\n", name);
+    os.Exit(1)
   }
-  return true
+  return false
 }
