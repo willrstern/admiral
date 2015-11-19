@@ -5,7 +5,7 @@ While Fleetctl is excellent, it doesn't provide the ability to command all insta
 
 ## Installation
 ```
-wget -O /usr/local/bin/admiral https://github.com/willrstern/admiral/releases/download/latest/admiral
+wget -O /usr/local/bin/admiral https://github.com/willrstern/admiral/releases/download/0.0.3/admiral
 chmod +x /usr/local/bin/admiral
 ```
 
