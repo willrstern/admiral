@@ -1,8 +1,13 @@
 # Admiral
 A wrapper for coreos fleet - allowing scaling and rolling deploys of apps
 
+While Fleetctl is excellent, it doesn't provide the ability to command all instances of an app.  Until (hopefully) that day comes, `admiral` provides the ability to do zero-downtime rolling restarts a.k.a. deployments, scaling, & even container rebalancing with the `--destroy` option
+
 ## Installation
-- `wget -O /usr/local/bin/admiral https://github.com/willrstern/admiral/releases/download/latest/admiral
+```
+wget -O /usr/local/bin/admiral https://github.com/willrstern/admiral/releases/download/latest/admiral
+chmod +x /usr/local/bin/admiral
+```
 
 ## Usage
 `admiral deploy someapp 4`
